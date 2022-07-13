@@ -138,6 +138,34 @@ function checkTransactions(arr, startingBal, accOverdraft) {
    return true
   }
 
+  const films = [
+    {
+      name:'The Power Of The Dog', 
+      genres: [
+        'Drama', 
+        'Western'
+      ]
+    },
+    {
+      name:'Dune', 
+      genres: [
+        'Sci-Fi'
+      ]
+    },
+    {
+      name: 'The Matrix Resurrections', 
+      genres: [
+        'Sci-Fi'
+      ]
+    },
+    {
+      name:'The Last Duel', 
+      genres: [
+        'Drama', 
+        'History'
+      ]
+    },
+  ]
 
 // FilmsInGenre
 //
@@ -155,41 +183,13 @@ function filmsInGenre(films, genre){
   let result = []
   for (let i=0; i < films.length; i++) {
       if (films[i].genres.includes(genre)) {
-          result.push(films[i])
-          console.log('Found the genre')
-      }
-      console.log('Did not find the genre')
-      return result
+          result.push(films[i].name)
+      }    
   }
+  return result
 }
-const films = [
-  {
-    name:'The Power Of The Dog', 
-    genres: [
-      'Drama', 
-      'Western'
-    ]
-  },
-  {
-    name:'Dune', 
-    genres: [
-      'Sci-Fi'
-    ]
-  },
-  {
-    name: 'The Matrix Resurrections', 
-    genres: [
-      'Sci-Fi'
-    ]
-  },
-  {
-    name:'The Last Duel', 
-    genres: [
-      'Drama', 
-      'History'
-    ]
-  },
-]
+
+console.log(films[0].name)
 // console.log(films[0].genres.includes('Drama'))
 console.log(filmsInGenre(films, 'Drama'))
 
