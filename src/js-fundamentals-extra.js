@@ -81,6 +81,14 @@ console.log(makeSentence('hello'))
 //
 // TODO: write code below
 
+function fileExtension(filename) {
+  if (filename.includes('.')) {
+  let indexOfPoint = filename.lastIndexOf('.')
+  return filename.substring(indexOfPoint+1)
+  }
+  return ''
+}
+console.log(fileExtension('image.png'))
 
 
 // Range
@@ -93,6 +101,10 @@ console.log(makeSentence('hello'))
 // with a reference to your function.
 //
 // TODO: write code below
+function range (arr) {
+  sortedArr = arr.sort((a,b)=>a-b)
+  return sortedArr[sortedArr.length - 1] - sortedArr[0]
+}
 
 
 
@@ -112,7 +124,16 @@ console.log(makeSentence('hello'))
 // with a reference to your function.
 //
 // TODO: write code below
-
+function checkTransactions(arr, startingBal, accOverdraft) {
+  balance = startingBal
+  for (let i = 0; i < arr.length; i++) {
+  balance += arr[i]
+  }
+    if (balance < - accOverdraft) {
+      return false
+    }
+   return true
+  }
 
 
 // FilmsInGenre
@@ -127,7 +148,9 @@ console.log(makeSentence('hello'))
 // with a reference to your function.
 //
 // TODO: write code below
-
+function filmsInGenre(arr) {
+  
+}
 
 
 // TODO: change undefined to be the name of the functions you defined
@@ -145,13 +168,13 @@ module.exports = {
   d: makeSentence, 
 
   //FileExtension
-  e: undefined,
+  e: fileExtension,
 
   //Range
-  f: undefined,
+  f: range,
 
   //CheckTransactions
-  g: undefined,
+  g: checkTransactions,
 
   //FilmsInGenre
   h: undefined,
