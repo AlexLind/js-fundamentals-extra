@@ -61,13 +61,16 @@ function kilometersToMiles(km) {
 // TODO: write code below
 function makeSentence(str) {
   const exeptions = ['.','?','!']
-  if (str.substring(str.length-1) === '.' || str.substring(str.length-1) === '!' || str.substring(str.length-1) === '?') {
-    return str.charAt(0).toUpperCase() + str.slice(1)
+  let lastChar = str.substring(str.length-1)
+  let returnString = str.charAt(0).toUpperCase() + str.slice(1)
+  if (exeptions.includes(lastChar)) {
+    return returnString
   } else {
-    return str.charAt(0).toUpperCase() + str.slice(1) + '.'
+    return returnString + '.'
   }
 }
-console.log(makeSentence('hello'))
+// str.substring(str.length-1) === '.' || str.substring(str.length-1) === '!' || str.substring(str.length-1) === '?'
+
 
 // FileExtension
 //
@@ -148,9 +151,47 @@ function checkTransactions(arr, startingBal, accOverdraft) {
 // with a reference to your function.
 //
 // TODO: write code below
-function filmsInGenre(arr) {
-  
+function filmsInGenre(films, genre){
+  let result = []
+  for (let i=0; i < films.length; i++) {
+      if (films[i].genres.includes(genre)) {
+          result.push(films[i])
+          console.log('Found the genre')
+      }
+      console.log('Did not find the genre')
+      return result
+  }
 }
+const films = [
+  {
+    name:'The Power Of The Dog', 
+    genres: [
+      'Drama', 
+      'Western'
+    ]
+  },
+  {
+    name:'Dune', 
+    genres: [
+      'Sci-Fi'
+    ]
+  },
+  {
+    name: 'The Matrix Resurrections', 
+    genres: [
+      'Sci-Fi'
+    ]
+  },
+  {
+    name:'The Last Duel', 
+    genres: [
+      'Drama', 
+      'History'
+    ]
+  },
+]
+// console.log(films[0].genres.includes('Drama'))
+console.log(filmsInGenre(films, 'Drama'))
 
 
 // TODO: change undefined to be the name of the functions you defined
@@ -177,5 +218,5 @@ module.exports = {
   g: checkTransactions,
 
   //FilmsInGenre
-  h: undefined,
+  h: filmsInGenre,
 }
